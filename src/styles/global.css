@@ -1,64 +1,146 @@
+/* ============================================================
+   brooo.app — brutalist global styles
+   ============================================================ */
+
+@import './fonts.css';
+
 :root {
-  --bg: #0f0f10;
-  --fg: #ededed;
-  --muted: #9a9a9a;
-  --accent: #ff7849;
-  --card: #1a1a1c;
-  --border: #2a2a2e;
-  --max-width: 720px;
+  --bg:       #FAFAF7;
+  --fg:       #111111;
+  --muted:    #666666;
+  --border:   #111111;
+  --accent:   #FF5C00;
+  --surface:  #F0EFE8;
+
+  --pad-page-x: 96px;
+  --pad-page-x-mobile: 32px;
+  --max-w: 1100px;
+
+  --border-w: 2px;
+  --border-w-thick: 3px;
+
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 }
 
-* { box-sizing: border-box; }
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, h1, h2, h3, h4, p, ul, ol, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; background: none; border: 0; color: inherit; }
 
-html, body {
-  margin: 0;
-  padding: 0;
+/* ---------- base ---------- */
+html { -webkit-text-size-adjust: 100%; }
+body {
   background: var(--bg);
   color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-main {
-  max-width: var(--max-width);
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+a:hover { background: var(--fg); color: var(--bg); }
+
+/* ---------- focus state (accessibility) ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- layout helpers ---------- */
+.container {
+  max-width: var(--max-w);
   margin: 0 auto;
-  padding: 4rem 1.5rem 6rem;
+  padding-left: var(--pad-page-x);
+  padding-right: var(--pad-page-x);
+}
+@media (max-width: 700px) {
+  .container {
+    padding-left: var(--pad-page-x-mobile);
+    padding-right: var(--pad-page-x-mobile);
+  }
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+.section { padding-top: 64px; padding-bottom: 64px; }
+.section--lg { padding-top: 96px; padding-bottom: 96px; }
+.section--bordered { border-bottom: var(--border-w) solid var(--border); }
+.section--alt { background: var(--surface); }
 
-h1 { font-size: 2.25rem; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -0.02em; }
-h2 { font-size: 1.4rem; margin: 2.5rem 0 0.75rem; letter-spacing: -0.01em; }
-h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
-p { margin: 0 0 1rem; }
-
-.tagline { color: var(--muted); font-size: 1.15rem; margin-bottom: 3rem; }
-
-.apps { display: grid; gap: 1rem; margin: 2rem 0; }
-.app-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
+/* ---------- typography ---------- */
+.h-display {
+  font-size: clamp(36px, 6vw, 52px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -2px;
 }
-.app-card h3 { margin-top: 0; }
-.app-card p { color: var(--muted); margin-bottom: 0.5rem; }
-.app-card .links { font-size: 0.9rem; }
-.app-card .links a { margin-right: 1rem; }
+.h-section {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+}
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.muted { color: var(--muted); }
+.accent { color: var(--accent); }
 
-footer {
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.9rem;
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  border: var(--border-w) solid var(--border);
+  border-bottom: var(--border-w) solid var(--border); /* override the link underline */
+  transition: background-color 100ms, color 100ms;
+}
+.btn--primary {
+  background: var(--fg);
+  color: var(--bg);
+}
+.btn--primary:hover {
+  background: var(--bg);
+  color: var(--fg);
+}
+.btn--ghost {
+  background: var(--bg);
+  color: var(--fg);
+}
+.btn--ghost:hover {
+  background: var(--fg);
+  color: var(--bg);
 }
 
-/* prose pages (privacy etc.) */
-.prose h1 { font-size: 1.8rem; }
-.prose ul { padding-left: 1.25rem; }
-.prose li { margin-bottom: 0.4rem; }
-.prose .meta { color: var(--muted); font-size: 0.9rem; margin-top: -0.5rem; }
+/* ---------- skip link (a11y) ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+.skip-link:focus {
+  position: static;
+  background: var(--accent);
+  color: var(--fg);
+  padding: 8px 12px;
+  font-weight: 700;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
