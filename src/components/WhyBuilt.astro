@@ -1,0 +1,22 @@
+---
+import type { App } from '../data/apps';
+import SectionLabel from './SectionLabel.astro';
+interface Props { app: App; }
+const { app } = Astro.props;
+if (!app.whyBuilt) throw new Error(`WhyBuilt requires app.whyBuilt for slug ${app.slug}`);
+---
+<section class="whybuilt section section--alt section--bordered">
+  <div class="container">
+    <SectionLabel text="WHY I BUILT THIS" />
+    <p class="whybuilt__text">{app.whyBuilt} <span class="muted">— Swapnil</span></p>
+  </div>
+</section>
+
+<style>
+  .whybuilt__text {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 720px;
+    color: var(--fg);
+  }
+</style>

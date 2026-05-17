@@ -1,0 +1,23 @@
+---
+import type { App } from '../data/apps';
+interface Props { app: App; }
+const { app } = Astro.props;
+---
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">brooo.app</a> / <span class="breadcrumb__current">{app.slug}</span>
+  </div>
+</div>
+
+<style>
+  .breadcrumb {
+    border-bottom: 1px dashed var(--border);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .breadcrumb a { border-bottom: 0; }
+  .breadcrumb a:hover { color: var(--accent); background: transparent; }
+  .breadcrumb__current { color: var(--fg); font-weight: 700; }
+</style>

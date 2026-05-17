@@ -1,0 +1,45 @@
+---
+import type { App } from '../data/apps';
+import SectionLabel from './SectionLabel.astro';
+interface Props { app: App; }
+const { app } = Astro.props;
+if (!app.features?.length) throw new Error(`FeatureGrid requires app.features for slug ${app.slug}`);
+---
+<section class="features section section--bordered">
+  <div class="container">
+    <SectionLabel text="WHAT IT DOES" />
+    <div class="features__grid">
+      {app.features.map((f) => (
+        <div class="features__item">
+          <div class="features__head">→ {f.headline}</div>
+          <p class="features__desc">{f.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .features__item {
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+  }
+  .features__head {
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  .features__desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  @media (max-width: 700px) {
+    .features__grid { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
