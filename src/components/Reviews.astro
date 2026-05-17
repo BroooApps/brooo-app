@@ -1,0 +1,46 @@
+---
+import type { App } from '../data/apps';
+import SectionLabel from './SectionLabel.astro';
+interface Props { app: App; }
+const { app } = Astro.props;
+if (!app.reviews?.length) throw new Error(`Reviews requires non-empty app.reviews for slug ${app.slug}`);
+---
+<section class="reviews section section--alt section--bordered">
+  <div class="container">
+    <SectionLabel text="EARLY USERS SAY" />
+    <div class="reviews__grid">
+      {app.reviews.map((r) => (
+        <blockquote class="reviews__card">
+          <p class="reviews__quote">"{r.quote}"</p>
+          <cite class="reviews__source muted">— {r.source}</cite>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .reviews__card {
+    background: var(--bg);
+    border: var(--border-w) solid var(--border);
+    padding: 24px;
+  }
+  .reviews__quote {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .reviews__source {
+    font-size: 11px;
+    font-weight: 700;
+    font-style: normal;
+  }
+  @media (max-width: 700px) {
+    .reviews__grid { grid-template-columns: 1fr; }
+  }
+</style>

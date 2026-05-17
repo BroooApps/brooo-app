@@ -1,0 +1,41 @@
+---
+import type { App } from '../data/apps';
+interface Props { app: App; }
+const { app } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="appfooter">
+  <div class="container appfooter__inner">
+    <ul class="appfooter__links">
+      {app.hasPrivacy && <li><a href={`/${app.slug}/privacy`}>privacy policy →</a></li>}
+      <li><a href="mailto:hello@brooo.app">support: hello@brooo.app</a></li>
+      <li><a href="/">← all apps</a></li>
+    </ul>
+    <div class="appfooter__copy muted">© {year} BROOOAPPS</div>
+  </div>
+</footer>
+
+<style>
+  .appfooter {
+    background: var(--bg);
+  }
+  .appfooter__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-size: 12px;
+  }
+  .appfooter__links {
+    display: flex;
+    gap: 20px;
+    font-weight: 700;
+    flex-wrap: wrap;
+  }
+  .appfooter__links a { border-bottom: 0; }
+  .appfooter__links a:hover { color: var(--accent); background: transparent; }
+  @media (max-width: 700px) {
+    .appfooter__inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>

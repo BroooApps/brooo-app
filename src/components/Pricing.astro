@@ -1,0 +1,73 @@
+---
+import type { App } from '../data/apps';
+import SectionLabel from './SectionLabel.astro';
+interface Props { app: App; }
+const { app } = Astro.props;
+if (!app.pricing) throw new Error(`Pricing requires app.pricing for slug ${app.slug}`);
+const { free, premium } = app.pricing;
+---
+<section class="pricing section section--bordered">
+  <div class="container">
+    <SectionLabel text="PRICING" />
+    <div class={`pricing__grid ${premium ? 'pricing__grid--two' : 'pricing__grid--one'}`}>
+      <div class="pricing__tier">
+        <div class="pricing__label">{free.label}</div>
+        <div class="pricing__price">{free.price}</div>
+        {free.subPrice && <div class="pricing__sub muted">{free.subPrice}</div>}
+        <p class="pricing__desc">{free.description}</p>
+      </div>
+      {premium && (
+        <div class="pricing__tier pricing__tier--inverted">
+          <div class="pricing__label accent">{premium.label}</div>
+          <div class="pricing__price">{premium.price}</div>
+          {premium.subPrice && <div class="pricing__sub">{premium.subPrice}</div>}
+          <p class="pricing__desc">{premium.description}</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing__grid {
+    display: grid;
+    border: var(--border-w) solid var(--border);
+  }
+  .pricing__grid--two { grid-template-columns: 1fr 1fr; }
+  .pricing__grid--one { grid-template-columns: 1fr; }
+  .pricing__tier {
+    padding: 28px;
+    border-right: var(--border-w) solid var(--border);
+  }
+  .pricing__tier:last-child { border-right: 0; }
+  .pricing__tier--inverted {
+    background: var(--fg);
+    color: var(--bg);
+  }
+  .pricing__tier--inverted .pricing__sub { color: #999; }
+  .pricing__tier--inverted .pricing__desc { color: #ddd; }
+  .pricing__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .pricing__price {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+  .pricing__sub {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+  .pricing__desc {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  @media (max-width: 700px) {
+    .pricing__grid--two { grid-template-columns: 1fr; }
+    .pricing__tier { border-right: 0; border-bottom: var(--border-w) solid var(--border); }
+    .pricing__tier:last-child { border-bottom: 0; }
+  }
+</style>
