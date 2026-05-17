@@ -1,0 +1,41 @@
+---
+import { apps } from '../data/apps';
+
+const liveCount = apps.filter((a) => a.status === 'live').length;
+const betaCount = apps.filter((a) => a.status === 'beta').length;
+---
+<section class="stats section--alt section--bordered">
+  <div class="container stats__inner">
+    <div class="stats__item">
+      <span class="stats__num">{liveCount}</span>
+      <span class="stats__label">apps shipped</span>
+    </div>
+    <div class="stats__item">
+      <span class="stats__num">{betaCount}</span>
+      <span class="stats__label">in beta</span>
+    </div>
+    <div class="stats__item">
+      <span class="stats__num">2026</span>
+      <span class="stats__label">— shipping since</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats { padding-top: 24px; padding-bottom: 24px; }
+  .stats__inner {
+    display: flex;
+    gap: 64px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  .stats__num {
+    font-size: 24px;
+    font-weight: 900;
+    margin-right: 8px;
+  }
+  .stats__label { color: var(--muted); }
+  @media (max-width: 700px) {
+    .stats__inner { gap: 24px; }
+  }
+</style>

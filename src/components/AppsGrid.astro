@@ -1,0 +1,42 @@
+---
+import { apps } from '../data/apps';
+import AppCard from './AppCard.astro';
+import SectionLabel from './SectionLabel.astro';
+---
+<section id="apps" class="appsgrid section section--bordered">
+  <div class="container">
+    <SectionLabel text="THE APPS" />
+    <div class="appsgrid__grid">
+      {apps.map((app) => (
+        <div class="appsgrid__cell">
+          <AppCard app={app} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .appsgrid__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: var(--border-w) solid var(--border);
+  }
+  .appsgrid__cell {
+    border-right: var(--border-w) solid var(--border);
+    border-bottom: var(--border-w) solid var(--border);
+  }
+  /* Remove right border on rightmost cells */
+  .appsgrid__cell:nth-child(2n) { border-right: 0; }
+  /* Remove bottom border on last row (assumes 4 cards) */
+  .appsgrid__cell:nth-last-child(-n+2) { border-bottom: 0; }
+
+  @media (max-width: 700px) {
+    .appsgrid__grid { grid-template-columns: 1fr; }
+    .appsgrid__cell {
+      border-right: 0;
+      border-bottom: var(--border-w) solid var(--border);
+    }
+    .appsgrid__cell:last-child { border-bottom: 0; }
+  }
+</style>

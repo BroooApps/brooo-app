@@ -1,0 +1,89 @@
+---
+import type { App } from '../data/apps';
+interface Props { app: App; }
+const { app } = Astro.props;
+
+const href = app.hasOwnPage
+  ? `/${app.slug}`
+  : app.playStoreUrl ?? '#';
+
+const statusLabel =
+  app.status === 'live' ? '● LIVE' :
+  app.status === 'beta' ? `○ BETA · ${app.betaDate ?? ''}` :
+  '○ COOKING';
+
+const statusColor = app.status === 'cooking' ? 'var(--muted)' : 'var(--accent)';
+const isPlaceholder = app.status === 'cooking';
+---
+<a class={`appcard ${isPlaceholder ? 'appcard--placeholder' : ''}`} href={href} {...(!app.hasOwnPage && app.playStoreUrl ? { target: '_blank', rel: 'noopener' } : {})}>
+  <div class="appcard__head">
+    <span class={`appcard__badge ${isPlaceholder ? 'appcard__badge--ghost' : ''}`}>{isPlaceholder ? '+ NEXT' : app.wordmark}</span>
+    <span class="appcard__status" style={`color: ${statusColor}`}>{statusLabel}</span>
+  </div>
+  <h3 class="appcard__title">{app.tagline}</h3>
+  <p class="appcard__line">{app.oneLiner}</p>
+  {!isPlaceholder && (
+    <div class="appcard__cta">→ {app.hasOwnPage ? `${app.slug} page` : 'play store ↗'}</div>
+  )}
+</a>
+
+<style>
+  .appcard {
+    display: block;
+    padding: 28px;
+    border-bottom: 0;
+    background: var(--bg);
+    color: inherit;
+    transition: background-color 100ms;
+  }
+  .appcard:hover {
+    background: var(--surface);
+    color: inherit;
+  }
+  .appcard--placeholder {
+    background: repeating-linear-gradient(45deg, var(--bg), var(--bg) 8px, var(--surface) 8px, var(--surface) 9px);
+    cursor: default;
+  }
+  .appcard--placeholder:hover { background: repeating-linear-gradient(45deg, var(--bg), var(--bg) 8px, var(--surface) 8px, var(--surface) 9px); }
+  .appcard__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .appcard__badge {
+    background: var(--fg);
+    color: var(--bg);
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .appcard__badge--ghost {
+    background: transparent;
+    color: var(--fg);
+    border: var(--border-w) solid var(--border);
+    padding: 4px 8px;
+  }
+  .appcard__status {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .appcard__title {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .appcard__line {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .appcard__cta {
+    font-size: 12px;
+    font-weight: 700;
+  }
+</style>
