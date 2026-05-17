@@ -1,0 +1,40 @@
+---
+// Site-wide footer (homepage). Per-app pages use AppFooter instead.
+const year = new Date().getFullYear();
+---
+<footer class="footer section--alt">
+  <div class="footer__inner container">
+    <div class="footer__copy muted">© {year} BROOOAPPS · INDIA</div>
+    <ul class="footer__links">
+      <li><a href="https://twitter.com/tiwariswapnil_" target="_blank" rel="noopener">twitter ↗</a></li>
+      <li><a href="https://medium.com/@swapniltiwari775" target="_blank" rel="noopener">medium ↗</a></li>
+      <li><a href="https://github.com/broooapps" target="_blank" rel="noopener">github ↗</a></li>
+      <li><a href="mailto:hello@brooo.app">hello@brooo.app</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: var(--border-w) solid var(--border);
+  }
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-size: 12px;
+  }
+  .footer__links {
+    display: flex;
+    gap: 20px;
+    font-weight: 700;
+  }
+  .footer__links a { border-bottom: 0; }
+  .footer__links a:hover { color: var(--accent); background: transparent; }
+  @media (max-width: 700px) {
+    .footer__inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer__links { flex-wrap: wrap; gap: 16px; }
+  }
+</style>
