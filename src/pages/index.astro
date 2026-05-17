@@ -1,39 +1,21 @@
 ---
-import Base from "../layouts/Base.astro";
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import StatsStrip from '../components/StatsStrip.astro';
+import AppsGrid from '../components/AppsGrid.astro';
+import Footer from '../components/Footer.astro';
 ---
-<Base title="BroooApps — Tools for getting better at being you">
-  <h1>BroooApps</h1>
-  <p class="tagline">Small Android apps that help you become a slightly better version of yourself.</p>
-
-  <section class="apps">
-    <article class="app-card">
-      <h3>Sutts</h3>
-      <p>An AI-powered companion to help you quit smoking — track urges, understand your patterns, and get back in control.</p>
-      <div class="links">
-        <a href="https://play.google.com/store/apps/dev?id=broooapps">Play Store</a>
-        <a href="/privacy/sutts">Privacy</a>
-      </div>
-    </article>
-
-    <article class="app-card">
-      <h3>VoiceLog</h3>
-      <p>An on-device AI voice journal. Speak your thoughts; keep them private.</p>
-      <div class="links">
-        <span style="color: var(--muted)">Coming soon</span>
-        <a href="/privacy/voicelog">Privacy</a>
-      </div>
-    </article>
-
-    <article class="app-card">
-      <h3>Randomizer</h3>
-      <p>Decision-making toolkit — dice, picker, coin flip, and more, all in one place.</p>
-      <div class="links">
-        <a href="https://play.google.com/store/apps/dev?id=broooapps">Play Store</a>
-        <a href="/privacy/randomizer">Privacy</a>
-      </div>
-    </article>
-  </section>
-
-  <h2>About</h2>
-  <p>BroooApps is the indie label of <a href="https://swapniltiwari.me">Swapnil Tiwari</a>. Made in India.</p>
+<Base
+  title="BroooApps — small apps for better habits"
+  description="Tiny self-improvement Android apps built by one indie maker. Sutts, VoiceLog, Randomizer. Privacy-first by default."
+  ogImage="/og/default.png"
+>
+  <Nav />
+  <main id="main">
+    <Hero />
+    <StatsStrip />
+    <AppsGrid />
+  </main>
+  <Footer />
 </Base>
