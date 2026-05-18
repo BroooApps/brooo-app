@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="404 — not found | BroooApps"
+  description="The page you're looking for isn't here."
+>
+  <Nav />
+  <main id="main" class="notfound">
+    <div class="container">
+      <div class="label accent">// 404</div>
+      <h1 class="h-display">page not found.</h1>
+      <p class="notfound__msg muted">that url didn't lead anywhere. probably a typo, or something that used to exist.</p>
+      <a href="/" class="btn btn--primary">[ ← BACK HOME ]</a>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .notfound {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+  .notfound__msg {
+    font-size: 15px;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    max-width: 540px;
+  }
+</style>

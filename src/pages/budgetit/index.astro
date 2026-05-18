@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+<Base
+  title="BudgetIt — coming soon | BroooApps"
+  description="Something new is being built. Follow on X for first looks."
+>
+  <Nav />
+  <main id="main" class="cooking">
+    <div class="container">
+      <div class="label muted">// COOKING</div>
+      <h1 class="h-display">something new is<br/>being built.</h1>
+      <p class="cooking__msg muted">budgetit is in the kitchen. no spoilers yet — follow along on X for first looks and beta access when it's ready.</p>
+      <div class="cooking__ctas">
+        <a href="https://twitter.com/tiwariswapnil_" target="_blank" rel="noopener" class="btn btn--primary">[ FOLLOW ON X ↗ ]</a>
+        <a href="/" class="btn btn--ghost">[ ← OTHER APPS ]</a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .cooking { padding-top: 96px; padding-bottom: 96px; }
+  .cooking__msg {
+    font-size: 15px;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    max-width: 540px;
+    line-height: 1.6;
+  }
+  .cooking__ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+</style>
