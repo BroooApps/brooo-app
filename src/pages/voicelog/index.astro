@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import AppHero from '../../components/AppHero.astro';
+import WhyBuilt from '../../components/WhyBuilt.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import Screenshots from '../../components/Screenshots.astro';
+import Pricing from '../../components/Pricing.astro';
+import Reviews from '../../components/Reviews.astro';
+import AppFooter from '../../components/AppFooter.astro';
+import { getApp } from '../../data/apps';
+
+const app = getApp('voicelog');
+if (!app) throw new Error('voicelog app missing from apps.ts');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: app.name,
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'Android',
+  description: app.hero?.blurb,
+};
+---
+<Base
+  title={`${app.name} — ${app.tagline} | BroooApps`}
+  description={app.hero?.blurb ?? app.oneLiner}
+  ogImage="/og/voicelog.png"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <Nav />
+  <main id="main">
+    <Breadcrumb app={app} />
+    <AppHero app={app} />
+    {app.whyBuilt && <WhyBuilt app={app} />}
+    {app.features && <FeatureGrid app={app} />}
+    {app.screenshots && <Screenshots app={app} />}
+    {app.pricing && <Pricing app={app} />}
+    {app.reviews && app.reviews.length > 0 && <Reviews app={app} />}
+  </main>
+  <AppFooter app={app} />
+</Base>
