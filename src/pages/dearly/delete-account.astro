@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import AppFooter from '../../components/AppFooter.astro';
+import { getApp } from '../../data/apps';
+
+const app = getApp('dearly');
+if (!app) throw new Error('delete-account: app dearly missing from apps.ts');
+---
+<Base
+  title={`${app.name} — Delete your account | BroooApps`}
+  description={`How to delete your ${app.name} account and all associated data.`}
+  ogImage="/og/default.png"
+>
+  <Nav />
+  <main id="main">
+    <Breadcrumb app={app} />
+    <article class="privacy section section--bordered">
+      <div class="container">
+        <header class="privacy__head">
+          <div class="label accent">// ACCOUNT DELETION</div>
+          <h1 class="h-section privacy__title">{app.name} — Delete your account &amp; data</h1>
+          <p class="privacy__meta muted">Last updated: 2026-07-06</p>
+        </header>
+        <div class="privacy__body">
+
+          <p>Dearly by Swapnil Tiwari
+          (<a href="mailto:swapniltiwari775@gmail.com">swapniltiwari775@gmail.com</a>).
+          You can permanently delete your account and all associated data at any
+          time, in two ways.</p>
+
+          <h2>Option 1 — Delete inside the app (instant)</h2>
+          <ul>
+            <li>Open Dearly and sign in.</li>
+            <li>Go to <strong>Settings → Delete account</strong>.</li>
+            <li>Confirm. Your account and all data are erased immediately.</li>
+          </ul>
+
+          <h2>Option 2 — Request deletion by email</h2>
+          <p>If you've uninstalled the app or can't sign in, email
+          <a href="mailto:swapniltiwari775@gmail.com?subject=Delete%20my%20Dearly%20account">swapniltiwari775@gmail.com</a>
+          with the subject <strong>Delete my account</strong>, sent from the Google
+          account you used to sign in. We verify ownership via that email address
+          and complete deletion within 30 days.</p>
+
+          <h2>What gets deleted</h2>
+          <ul>
+            <li>Your account and Google sign-in link (Firebase Authentication).</li>
+            <li>All journal content — transcripts, edits, moods, notes, and the AI-derived people, places, topics, and feelings (Google Cloud Firestore).</li>
+            <li>All local data on your device — the on-device database and your voice recordings.</li>
+            <li>Temporary server-side analysis caches used to make AI retries cheaper.</li>
+          </ul>
+
+          <p>Deletion is permanent and cannot be undone. Nothing is retained
+          afterward except where the law requires it. Voice recordings never leave
+          your device, so they are removed together with the app's local data.</p>
+
+          <h2>Related</h2>
+          <p>See our <a href="/dearly/privacy">Privacy Policy</a> for what we
+          collect and how it's handled.</p>
+
+        </div>
+      </div>
+    </article>
+  </main>
+  <AppFooter app={app} />
+</Base>
+
+<style>
+  .privacy__head { margin-bottom: 48px; }
+  .privacy__title { margin-top: 12px; margin-bottom: 8px; }
+  .privacy__meta { font-size: 12px; }
+  .privacy__body {
+    max-width: 720px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .privacy__body :global(h2) {
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .privacy__body :global(p) { margin-bottom: 16px; }
+  .privacy__body :global(ul) {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 16px;
+  }
+  .privacy__body :global(ul li) {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .privacy__body :global(ul li::before) {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .privacy__body :global(a) {
+    border-bottom: 1px solid currentColor;
+  }
+</style>
