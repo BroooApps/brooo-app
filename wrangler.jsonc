@@ -1,0 +1,14 @@
+{
+  // brooo.app — static Astro site served by an assets-only Cloudflare Worker.
+  // Deploy with: npm run build && npx wrangler deploy   (see CLAUDE.md)
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "brooo-app",
+  "compatibility_date": "2026-05-24",
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  "assets": {
+    "directory": "./dist"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
