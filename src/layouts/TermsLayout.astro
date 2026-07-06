@@ -1,0 +1,78 @@
+---
+import Base from './Base.astro';
+import Nav from '../components/Nav.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import AppFooter from '../components/AppFooter.astro';
+import { getApp } from '../data/apps';
+
+interface Props {
+  appSlug: string;
+  lastUpdated: string;  // e.g. "2026-07-06"
+}
+const { appSlug, lastUpdated } = Astro.props;
+const app = getApp(appSlug);
+if (!app) throw new Error(`TermsLayout: app ${appSlug} missing from apps.ts`);
+---
+<Base
+  title={`${app.name} — Terms of Service | BroooApps`}
+  description={`Terms of Service for ${app.name}. The rules for using the app, subscriptions, and your content.`}
+  ogImage="/og/default.png"
+>
+  <Nav />
+  <main id="main">
+    <Breadcrumb app={app} />
+    <article class="privacy section section--bordered">
+      <div class="container">
+        <header class="privacy__head">
+          <div class="label accent">// TERMS OF SERVICE</div>
+          <h1 class="h-section privacy__title">{app.name} — Terms</h1>
+          <p class="privacy__meta muted">Last updated: {lastUpdated}</p>
+        </header>
+        <div class="privacy__body">
+          <slot />
+        </div>
+      </div>
+    </article>
+  </main>
+  <AppFooter app={app} />
+</Base>
+
+<style>
+  .privacy__head { margin-bottom: 48px; }
+  .privacy__title { margin-top: 12px; margin-bottom: 8px; }
+  .privacy__meta { font-size: 12px; }
+  .privacy__body {
+    max-width: 720px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .privacy__body :global(h2) {
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .privacy__body :global(p) { margin-bottom: 16px; }
+  .privacy__body :global(ul) {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 16px;
+  }
+  .privacy__body :global(ul li) {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .privacy__body :global(ul li::before) {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .privacy__body :global(a) {
+    border-bottom: 1px solid currentColor;
+  }
+</style>

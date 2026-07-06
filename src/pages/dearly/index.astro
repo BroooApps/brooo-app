@@ -11,8 +11,8 @@ import Reviews from '../../components/Reviews.astro';
 import AppFooter from '../../components/AppFooter.astro';
 import { getApp } from '../../data/apps';
 
-const app = getApp('voicelog');
-if (!app) throw new Error('voicelog app missing from apps.ts');
+const app = getApp('dearly');
+if (!app) throw new Error('dearly app missing from apps.ts');
 
 const jsonLd = {
   '@context': 'https://schema.org',

@@ -95,8 +95,8 @@ export const apps: App[] = [
     ],
   },
   {
-    slug: 'voicelog',
-    name: 'VoiceLog',
+    slug: 'dearly',
+    name: 'Dearly',
     wordmark: 'VOICELOG',
     tagline: 'voice journal, on-device.',
     oneLiner: 'talk it out. whisper transcribes. AI reflects back. nothing leaves your phone.',

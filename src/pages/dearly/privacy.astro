@@ -1,0 +1,59 @@
+---
+import PrivacyLayout from '../../layouts/PrivacyLayout.astro';
+---
+<PrivacyLayout appSlug="dearly" lastUpdated="2026-07-06">
+
+  <p>Dearly ("we", "the app") is a voice journaling app by Swapnil Tiwari
+  (contact: <a href="mailto:swapniltiwari775@gmail.com">swapniltiwari775@gmail.com</a>).
+  Your journal is deeply personal; this policy says plainly what we collect,
+  where it goes, and how to erase it.</p>
+
+  <h2>What we collect</h2>
+  <ul>
+    <li><strong>Account:</strong> your Google account name, email, and photo, via Google Sign-In (Firebase Authentication) — to create and secure your account.</li>
+    <li><strong>Voice recordings:</strong> stored <strong>only on your device</strong>. We never upload or keep your audio on our servers. To transcribe an entry, the audio is sent over an encrypted connection to Google's Gemini API, transcribed, and not stored by us.</li>
+    <li><strong>Journal content:</strong> your transcripts, edits, moods, notes, and the AI-derived people/places/topics and feelings from your entries are stored in your private space in Google Cloud Firestore, so your journal syncs and restores.</li>
+    <li><strong>Subscription status:</strong> processed by Google Play Billing. We never see your payment details.</li>
+    <li>We use <strong>no advertising, no analytics SDKs, and no crash-tracking SDKs</strong>.</li>
+  </ul>
+
+  <h2>AI processing</h2>
+  <p>Transcription and reflection features are powered by Google's Gemini API
+  (Google acts as our processor). Entries you analyze are sent as text for
+  processing. We use the Gemini API under terms whose paid tier does not permit
+  Google to use your content to train its models. Temporary server-side caches
+  that make retries cheaper are removed when you delete your account.</p>
+
+  <h2>Sensitive content</h2>
+  <p>A journal can contain anything — including health, beliefs, or relationships.
+  We treat all journal content as sensitive: it is never sold, never shared with
+  third parties beyond the processors named above (Google Firebase, Google
+  Gemini API), and never used for advertising.</p>
+
+  <h2>Security and access</h2>
+  <p>Data in transit is encrypted (TLS). Your Firestore space is protected by
+  per-user security rules — only your signed-in account can read it. You can
+  additionally lock the app behind your fingerprint (biometric lock).</p>
+
+  <h2>Retention and deletion</h2>
+  <p>Your data stays until you delete it. <strong>Settings → Delete account</strong>
+  permanently removes your Firestore data, your account, and all local data
+  (database and audio recordings) from the device. Individual entries can be
+  deleted anytime.</p>
+
+  <h2>Legal bases (EEA/UK)</h2>
+  <p>Performance of contract (providing the journal), consent (AI analysis of your
+  entries; revocable by not using analysis or deleting your account), and
+  legitimate interest (abuse-prevention rate limits).</p>
+
+  <h2>Children</h2>
+  <p>Dearly is not directed at children under 13 (or the applicable age in your
+  country) and we do not knowingly collect their data.</p>
+
+  <h2>Changes</h2>
+  <p>We will update this page and the date above if our practices change.</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:swapniltiwari775@gmail.com">swapniltiwari775@gmail.com</a></p>
+
+</PrivacyLayout>
