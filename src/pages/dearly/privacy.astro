@@ -14,7 +14,7 @@ import PrivacyLayout from '../../layouts/PrivacyLayout.astro';
     <li><strong>Voice recordings:</strong> stored <strong>only on your device</strong>. We never upload or keep your audio on our servers. To transcribe an entry, the audio is sent over an encrypted connection to Google's Gemini API, transcribed, and not stored by us.</li>
     <li><strong>Journal content:</strong> your transcripts, edits, moods, notes, and the AI-derived people/places/topics and feelings from your entries are stored in your private space in Google Cloud Firestore, so your journal syncs and restores.</li>
     <li><strong>Subscription status:</strong> processed by Google Play Billing. We never see your payment details.</li>
-    <li>We use <strong>no advertising, no analytics SDKs, and no crash-tracking SDKs</strong>.</li>
+    <li><strong>App usage &amp; crash data:</strong> lean, privacy-first analytics and crash reports (see below). We run <strong>no advertising and no ad tracking</strong> — the advertising ID is disabled.</li>
   </ul>
 
   <h2>AI processing</h2>
@@ -23,6 +23,16 @@ import PrivacyLayout from '../../layouts/PrivacyLayout.astro';
   processing. We use the Gemini API under terms whose paid tier does not permit
   Google to use your content to train its models. Temporary server-side caches
   that make retries cheaper are removed when you delete your account.</p>
+
+  <h2>Analytics and crash reporting</h2>
+  <p>To learn which core features are used and to fix crashes, we use Firebase
+  Analytics and Firebase Crashlytics (Google acts as our processor). These collect
+  app-usage events (such as screens opened and features tapped), a pseudonymous
+  app-instance identifier, and crash and diagnostic logs. We keep this deliberately
+  lean: the advertising ID is turned off, ad-personalization signals are disabled,
+  and this data is <strong>not linked to your account or identity</strong>. Your
+  journal content — transcripts, audio, moods, and notes — is <strong>never</strong>
+  included in any analytics event or crash report.</p>
 
   <h2>Sensitive content</h2>
   <p>A journal can contain anything — including health, beliefs, or relationships.
