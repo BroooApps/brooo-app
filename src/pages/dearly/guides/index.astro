@@ -1,0 +1,61 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Nav from '../../../components/Nav.astro';
+import AppFooter from '../../../components/AppFooter.astro';
+import { getApp } from '../../../data/apps';
+import { getCollection } from 'astro:content';
+
+const app = getApp('dearly');
+if (!app) throw new Error('dearly app missing from apps.ts');
+const guides = (await getCollection('guides', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<Base
+  title="Voice journaling guides | Dearly"
+  description="Guides on voice journaling from the makers of Dearly — the private voice journal app for Android. How to start, how to stay consistent, and how to keep your journal yours."
+  ogImage="/og/dearly.png"
+>
+  <Nav />
+  <main id="main">
+    <div class="crumbs">
+      <div class="container">
+        <a href="/">brooo.app</a> / <a href="/dearly/">dearly</a> / <span class="crumbs__current">guides</span>
+      </div>
+    </div>
+    <section class="container guides-index">
+      <h1>voice journaling guides</h1>
+      <p class="guides-index__intro">
+        Practical, no-fluff guides on journaling out loud — from the makers of
+        <a href="/dearly/">Dearly — voice journal app for Android by BroooApps</a>.
+      </p>
+      <ul class="guides-index__list">
+        {guides.map((g) => (
+          <li>
+            <a href={`/dearly/guides/${g.id}/`}>{g.data.title}</a>
+            <p>{g.data.description}</p>
+          </li>
+        ))}
+      </ul>
+      <p><a href="/dearly/faq/">dearly faq →</a></p>
+    </section>
+  </main>
+  <AppFooter app={app} />
+</Base>
+
+<style>
+  .crumbs {
+    border-bottom: 1px dashed var(--border);
+    padding: 16px 0;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .crumbs a { border-bottom: 0; }
+  .crumbs__current { color: var(--fg); font-weight: 700; }
+  .guides-index { max-width: 760px; padding-top: 48px; padding-bottom: 64px; }
+  .guides-index h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 16px; }
+  .guides-index__intro { color: var(--muted); margin: 0 0 40px; }
+  .guides-index__list { list-style: none; padding: 0; margin: 0 0 40px; }
+  .guides-index__list li { border: var(--border-w) solid var(--border); padding: 20px; margin-bottom: 16px; }
+  .guides-index__list li a { font-weight: 700; font-size: 17px; }
+  .guides-index__list li p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+</style>
