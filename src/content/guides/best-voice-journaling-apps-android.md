@@ -82,11 +82,11 @@ Whether raw audio is retained on servers is not explicitly stated in Voicenotes'
 
 ### Trade-offs
 
-- Pro plan ($14.99/mo or ~$99.99/yr) is required for unlimited transcription — free tier is limited
+- Pro plan (~$9/mo or ~$99.99/yr) is required for unlimited transcription — free tier is limited
 - Raw audio retention policy is not explicitly stated in public docs
 - Designed as a general voice-note and meeting tool, not specifically as a diary
 
-**Price as of July 2026:** Free (limited transcription minutes); Pro ~$14.99/mo or ~$99.99/yr
+**Price as of July 2026:** Free (limited transcription minutes); Pro ~$9/mo or ~$99.99/yr
 
 ---
 
@@ -100,7 +100,7 @@ The app was last updated to version 1.8.1 in January 2026. It is a smaller produ
 
 - Explicitly built as an audio diary — date-indexed entries, mood tracking, transcription
 - Encrypted entries; mood analyzer alongside voice recording
-- Lower price point: $3.99/mo or $29.99/yr
+- Lower price point: around $3.99/mo (listed pricing varies by region; check the Play listing)
 
 ### Trade-offs
 
@@ -108,7 +108,7 @@ The app was last updated to version 1.8.1 in January 2026. It is a smaller produ
 - Smaller team, slower update cadence compared to other apps here
 - No AI insights or reflection features beyond basic mood tracking
 
-**Price as of July 2026:** Free (5 audio entries/month); Premium $3.99/mo or $29.99/yr
+**Price as of July 2026:** Free (5 audio entries/month); Premium ~$3.99/mo or ~$29.99/yr (pricing varies by region; check the Play listing)
 
 ---
 
@@ -162,8 +162,8 @@ The free plan covers daily journaling comfortably: unlimited recordings and 10 t
 |---|---|---|---|---|---|
 | Day One | iOS, Android, Mac | Cloud (audio not transcribed) | Not applicable (no transcription) | Gold tier only | Free; Silver $49.99/yr; Gold $74.99/yr |
 | AudioPen | Android, iOS, web | Cloud | Yes — auto-deleted after processing | No (rewriting, not journaling) | Free (limited); Prime $99/yr one-time |
-| Voicenotes | Android, iOS, Mac, Windows, web, Wear OS | Cloud | Not stated | Yes (Pro) | Free (limited); Pro ~$14.99/mo or ~$99.99/yr |
-| Journify | Android, iOS | Cloud (when online) | Not stated | Basic mood tracking | Free (5/mo); Premium $3.99/mo or $29.99/yr |
+| Voicenotes | Android, iOS, Mac, Windows, web, Wear OS | Cloud | Not stated | Yes (Pro) | Free (limited); Pro ~$9/mo or ~$99.99/yr |
+| Journify | Android, iOS | Cloud (when online) | Not stated | Basic mood tracking | Free (5/mo); Premium ~$3.99/mo or ~$29.99/yr (check Play listing) |
 | Google Recorder | Android (Pixel only) | On-device | No | No | Free |
 | Dearly | Android only | Cloud (encrypted; audio stays on device) | No | Yes (Pro) | Free; Pro $24.99/yr or $2.99/mo |
 
