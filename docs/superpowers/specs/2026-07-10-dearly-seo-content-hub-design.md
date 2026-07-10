@@ -89,9 +89,17 @@ Guide body copy in **sentence case** (brand lowercase stays in chrome/headlines)
 ## Deploy
 
 Manual, per CLAUDE.md: `npm run build` → `npx wrangler deploy`. Post-deploy: curl
-the new trailing-slash URLs, spot-check JSON-LD with a validator, request indexing
-for the new URLs in Google Search Console (if property exists — else flag as
-follow-up to set up GSC, which this project should have anyway).
+the new trailing-slash URLs, spot-check JSON-LD with a validator.
+
+### Google Search Console (in scope — not yet set up)
+
+Set up a GSC **Domain property** for `brooo.app`, verified via a DNS TXT record in
+Cloudflare (cleanest for a domain already on Cloudflare DNS). Then submit
+`https://brooo.app/sitemap-index.xml` and request indexing for the new Dearly URLs.
+The Google-account sign-in steps are user-driven; Claude prepares exact
+instructions + the TXT record, and can add the DNS record via wrangler/API if a
+Cloudflare API token is available. GSC is the measurement side of this project —
+without it there is no visibility into impressions/queries.
 
 ## Out of scope
 
