@@ -19,6 +19,9 @@ Facts:
 - Dearly Pro: $24.99/year (~$2.08/month) or $2.99/month, 7-day free trial —
   AI insights (mood horizon, your cast, patterns, reflections) plus export
 
+Guides author: Swapnil Tiwari, Android engineer & indie developer —
+https://www.linkedin.com/in/swapniltiwari1/
+
 Pages:
 - About: https://brooo.app/dearly/
 - FAQ: https://brooo.app/dearly/faq/

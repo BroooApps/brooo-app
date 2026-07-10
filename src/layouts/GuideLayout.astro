@@ -26,7 +26,13 @@ const articleLd = {
   description: guide.data.description,
   datePublished: published,
   dateModified: modified,
-  author: { '@type': 'Organization', name: 'BroooApps', url: siteUrl },
+  author: {
+    '@type': 'Person',
+    name: 'Swapnil Tiwari',
+    url: 'https://www.linkedin.com/in/swapniltiwari1/',
+    sameAs: ['https://www.linkedin.com/in/swapniltiwari1/'],
+    jobTitle: 'Android engineer & indie developer',
+  },
   publisher: { '@type': 'Organization', name: 'BroooApps', url: siteUrl },
   mainEntityOfPage: pageUrl,
   about: {
@@ -67,7 +73,7 @@ const breadcrumbLd = {
       <header class="guide__header">
         <h1>{guide.data.title}</h1>
         <p class="guide__meta">
-          published {published}{guide.data.updatedDate ? ` · updated ${modified}` : ''} · by broooapps
+          published {published}{guide.data.updatedDate ? ` · updated ${modified}` : ''} · by <a href="https://www.linkedin.com/in/swapniltiwari1/" target="_blank" rel="noopener author">Swapnil Tiwari</a> · broooapps
         </p>
         <p class="guide__desc">{guide.data.description}</p>
       </header>
