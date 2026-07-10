@@ -90,28 +90,6 @@ Whether raw audio is retained on servers is not explicitly stated in Voicenotes'
 
 ---
 
-## Journify
-
-Journify is the closest competitor to Dearly in intent: it is explicitly an audio journal app with mood tracking, transcription, and a free tier. It's available on Android. The free tier allows up to 5 audio entries per month; premium removes that limit. Entries are encrypted. Journify adds mood analysis alongside audio — you can track how you felt on a given day alongside the entry itself. It transcribes when you're online.
-
-The app was last updated to version 1.8.1 in January 2026. It is a smaller product without the active development pace of the other apps in this list.
-
-### Strengths
-
-- Explicitly built as an audio diary — date-indexed entries, mood tracking, transcription
-- Encrypted entries; mood analyzer alongside voice recording
-- Lower price point: around $3.99/mo (listed pricing varies by region; check the Play listing)
-
-### Trade-offs
-
-- Free tier caps at 5 audio entries per month — not enough for daily journaling without paying
-- Smaller team, slower update cadence compared to other apps here
-- No AI insights or reflection features beyond basic mood tracking
-
-**Price as of July 2026:** Free (5 audio entries/month); Premium ~$3.99/mo or ~$29.99/yr (pricing varies by region; check the Play listing)
-
----
-
 ## Google Recorder
 
 Google Recorder is a free, Pixel-exclusive app that does one thing extremely well: real-time, on-device transcription. You speak, and the transcript appears live on screen — no cloud upload, no connection required. It's among the most accurate and fastest transcription experiences available on any Android device, because Google's on-device speech models are exceptional.
@@ -163,7 +141,6 @@ The free plan covers daily journaling comfortably: unlimited recordings and 10 t
 | Day One | iOS, Android, Mac | Cloud (audio not transcribed) | Not applicable (no transcription) | Gold tier only | Free; Silver $49.99/yr; Gold $74.99/yr |
 | AudioPen | Android, iOS, web | Cloud | Yes — auto-deleted after processing | No (rewriting, not journaling) | Free (limited); Prime $99/yr one-time |
 | Voicenotes | Android, iOS, Mac, Windows, web, Wear OS | Cloud | Not stated | Yes (Pro) | Free (limited); Pro ~$9/mo or ~$99.99/yr |
-| Journify | Android, iOS | Cloud (when online) | Not stated | Basic mood tracking | Free (5/mo); Premium ~$3.99/mo or ~$29.99/yr (check Play listing) |
 | Google Recorder | Android (Pixel only) | On-device | No | No | Free |
 | Dearly | Android only | Cloud (encrypted; audio stays on device) | No | Yes (Pro) | Free; Pro $24.99/yr or $2.99/mo |
 
@@ -173,7 +150,7 @@ The free plan covers daily journaling comfortably: unlimited recordings and 10 t
 
 **If you're on iPhone** — Dearly isn't available. Day One is the most polished cross-platform journaling app and includes audio attachments on its paid tiers. AudioPen is excellent if you want to think out loud and turn recordings into polished writing.
 
-**If you want sync across Android, iPhone, Mac, and Windows** — Voicenotes has the broadest platform coverage. Day One is close behind and has a stronger journaling-specific design. Neither Dearly nor Journify follow you off Android.
+**If you want sync across Android, iPhone, Mac, and Windows** — Voicenotes has the broadest platform coverage. Day One is close behind and has a stronger journaling-specific design. Dearly is Android-only, so it won't follow you if you switch platforms.
 
 **If you want a thinking-out-loud dictation tool rather than a diary** — AudioPen is the right answer. It's not trying to be a diary and doesn't pretend to be. It turns unstructured voice into clean written output, which is a genuinely different use case from reflective journaling.
 
