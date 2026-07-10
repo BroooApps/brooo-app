@@ -14,13 +14,43 @@ import { getApp } from '../../data/apps';
 const app = getApp('dearly');
 if (!app) throw new Error('dearly app missing from apps.ts');
 
+const siteUrl = 'https://brooo.app';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: app.name,
+  name: 'Dearly',
+  alternateName: 'Dearly — voice journal app for Android by BroooApps',
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'Android',
   description: app.hero?.blurb,
+  url: `${siteUrl}/dearly/`,
+  installUrl: app.playStoreUrl,
+  downloadUrl: app.playStoreUrl,
+  screenshot: (app.screenshots ?? []).map((s) => `${siteUrl}${s}`),
+  author: { '@type': 'Organization', name: 'BroooApps', url: siteUrl },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Free',
+      price: '0',
+      priceCurrency: 'USD',
+      description: app.pricing?.free.description,
+    },
+    {
+      '@type': 'Offer',
+      name: 'Dearly Pro (yearly)',
+      price: '24.99',
+      priceCurrency: 'USD',
+      description: app.pricing?.premium?.description,
+    },
+    {
+      '@type': 'Offer',
+      name: 'Dearly Pro (monthly)',
+      price: '2.99',
+      priceCurrency: 'USD',
+      description: '7-day free trial, then $2.99/month.',
+    },
+  ],
 };
 ---
 <Base
