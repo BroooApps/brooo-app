@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import AppFooter from '../../components/AppFooter.astro';
+import { getApp } from '../../data/apps';
+
+const app = getApp('dearly');
+if (!app) throw new Error('dearly app missing from apps.ts');
+
+const faqs = [
+  {
+    q: 'What is Dearly?',
+    a: 'Dearly is a voice journal app for Android by BroooApps. You tap the ink drop, speak for a minute, and Dearly transcribes your words into a clean, serif-set journal page you can reread and search. The free plan includes unlimited recording and 10 transcriptions per day.',
+  },
+  {
+    q: 'How much does Dearly cost?',
+    a: 'Dearly is free forever for recording, 10 transcriptions a day, your full journal, and biometric lock. Dearly Pro costs $24.99/year (about $2.08/month) or $2.99/month, with a 7-day free trial, and adds AI insights — mood horizon, your cast, patterns, reflections — plus export.',
+  },
+  {
+    q: 'Does my voice recording leave my phone?',
+    a: 'No. Your voice recordings stay on your device and are never uploaded. Only the transcription text travels, over an encrypted connection.',
+  },
+  {
+    q: 'Does Dearly work offline?',
+    a: 'Recording works offline. Transcription and AI insights need an internet connection, because transcription happens in the cloud (your raw audio still never leaves the device — only the encrypted transcription request does).',
+  },
+  {
+    q: 'What does "10 free transcriptions a day" mean?',
+    a: 'On the free plan, Dearly transcribes up to 10 entries per day; the limit resets daily. Recording itself is always unlimited.',
+  },
+  {
+    q: 'What AI insights does Dearly Pro include?',
+    a: 'A mood horizon of your month (your emotional weather over time), your cast (the people and places that keep appearing), patterns like "when work comes up, worry follows", and reflections on your entries.',
+  },
+  {
+    q: 'Can I lock my journal?',
+    a: 'Yes. Dearly supports biometric lock, so your journal opens with your fingerprint.',
+  },
+  {
+    q: 'How do I delete my data?',
+    a: 'You can delete entries or everything from inside the app at any time. To delete your account and all associated data, see brooo.app/dearly/delete-account.',
+  },
+  {
+    q: 'Does Dearly use analytics?',
+    a: 'Dearly uses Firebase Analytics and Crashlytics for anonymous usage and crash reporting, as disclosed in the privacy policy. Your journal content is not analytics data.',
+  },
+  {
+    q: 'Which Android versions does Dearly support?',
+    a: 'Dearly runs on Android 9 and up.',
+  },
+  {
+    q: 'Is Dearly available on iPhone (iOS)?',
+    a: 'Not yet — Dearly is Android-only today. An iOS version is being considered based on demand; email hello@brooo.app if you want it.',
+  },
+  {
+    q: 'Can I export my journal?',
+    a: 'Yes — export is included in Dearly Pro.',
+  },
+  {
+    q: 'Who makes Dearly?',
+    a: 'Dearly is built by BroooApps, an indie studio making personal-improvement apps. You can reach the developer at hello@brooo.app.',
+  },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base
+  title="Dearly FAQ — pricing, privacy, and how it works"
+  description="Answers about Dearly, the voice journal app for Android: what it costs, whether your audio leaves your phone, offline behavior, data deletion, and more."
+  ogImage="/og/dearly.png"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  <Nav />
+  <main id="main">
+    <div class="crumbs">
+      <div class="container">
+        <a href="/">brooo.app</a> / <a href="/dearly/">dearly</a> / <span class="crumbs__current">faq</span>
+      </div>
+    </div>
+    <section class="container faq">
+      <h1>dearly — frequently asked questions</h1>
+      <p class="faq__intro">
+        Everything people ask about <strong>Dearly — voice journal app for Android by BroooApps</strong>.
+        Something missing? <a href="mailto:hello@brooo.app">hello@brooo.app</a>.
+      </p>
+      <dl>
+        {faqs.map((f) => (
+          <>
+            <dt>{f.q}</dt>
+            <dd>{f.a}</dd>
+          </>
+        ))}
+      </dl>
+      <aside class="faq__cta">
+        <a href={app.playStoreUrl} target="_blank" rel="noopener">[ INSTALL ON PLAY STORE ↗ ]</a>
+        <p>
+          <a href="/dearly/privacy/">privacy policy</a> ·
+          <a href="/dearly/delete-account/">delete account</a> ·
+          <a href="/dearly/guides/">voice journaling guides</a>
+        </p>
+      </aside>
+    </section>
+  </main>
+  <AppFooter app={app} />
+</Base>
+
+<style>
+  .crumbs {
+    border-bottom: 1px dashed var(--border);
+    padding: 16px 0;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .crumbs a { border-bottom: 0; }
+  .crumbs__current { color: var(--fg); font-weight: 700; }
+  .faq { max-width: 760px; padding-top: 48px; padding-bottom: 64px; }
+  .faq h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 16px; }
+  .faq__intro { color: var(--muted); margin: 0 0 40px; }
+  .faq dt { font-weight: 700; font-size: 16px; margin: 28px 0 8px; }
+  .faq dd { margin: 0; line-height: 1.8; font-size: 15px; }
+  .faq__cta { border: var(--border-w) solid var(--border); background: var(--surface); padding: 24px; margin-top: 48px; }
+  .faq__cta a { font-weight: 700; }
+  .faq__cta p { margin: 16px 0 0; font-size: 13px; }
+  .faq__cta p a { font-weight: 400; }
+</style>

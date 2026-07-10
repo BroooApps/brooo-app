@@ -10,17 +10,50 @@ import Pricing from '../../components/Pricing.astro';
 import Reviews from '../../components/Reviews.astro';
 import AppFooter from '../../components/AppFooter.astro';
 import { getApp } from '../../data/apps';
+import { getCollection } from 'astro:content';
 
 const app = getApp('dearly');
+const guides = (await getCollection('guides', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 if (!app) throw new Error('dearly app missing from apps.ts');
 
+const siteUrl = 'https://brooo.app';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: app.name,
+  name: 'Dearly',
+  alternateName: 'Dearly — voice journal app for Android by BroooApps',
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'Android',
   description: app.hero?.blurb,
+  url: `${siteUrl}/dearly/`,
+  installUrl: app.playStoreUrl,
+  downloadUrl: app.playStoreUrl,
+  screenshot: (app.screenshots ?? []).map((s) => `${siteUrl}${s}`),
+  author: { '@type': 'Organization', name: 'BroooApps', url: siteUrl },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Free',
+      price: '0',
+      priceCurrency: 'USD',
+      description: app.pricing?.free.description,
+    },
+    {
+      '@type': 'Offer',
+      name: 'Dearly Pro (yearly)',
+      price: '24.99',
+      priceCurrency: 'USD',
+      description: app.pricing?.premium?.description,
+    },
+    {
+      '@type': 'Offer',
+      name: 'Dearly Pro (monthly)',
+      price: '2.99',
+      priceCurrency: 'USD',
+      description: '7-day free trial, then $2.99/month.',
+    },
+  ],
 };
 ---
 <Base
@@ -38,6 +71,22 @@ const jsonLd = {
     {app.screenshots && <Screenshots app={app} />}
     {app.pricing && <Pricing app={app} />}
     {app.reviews && app.reviews.length > 0 && <Reviews app={app} />}
+    <section class="container dearly-guides">
+      <h2>voice journaling guides</h2>
+      <ul>
+        {guides.map((g) => (
+          <li><a href={`/dearly/guides/${g.id}/`}>{g.data.title}</a></li>
+        ))}
+        <li><a href="/dearly/faq/">dearly faq</a></li>
+      </ul>
+    </section>
   </main>
   <AppFooter app={app} />
 </Base>
+
+<style>
+  .dearly-guides { padding-top: 32px; padding-bottom: 64px; border-top: 1px dashed var(--border); }
+  .dearly-guides h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 16px; }
+  .dearly-guides ul { list-style: none; padding: 0; margin: 0; }
+  .dearly-guides li { margin-bottom: 10px; }
+</style>

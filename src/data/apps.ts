@@ -100,8 +100,8 @@ export const apps: App[] = [
     wordmark: 'DEARLY',
     tagline: 'dear diary, spoken.',
     oneLiner: 'the voice journal that writes itself. speak for a minute — and see the patterns beneath.',
-    status: 'beta',
-    betaDate: 'JUN 26',
+    status: 'live',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.broooapps.dearly',
     hasOwnPage: true,
     hasPrivacy: true,
     hero: {

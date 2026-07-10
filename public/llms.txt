@@ -1,0 +1,38 @@
+# brooo.app — BroooApps
+
+> BroooApps is an indie Android app studio by Swapnil Tiwari, making
+> personal-improvement apps. Contact: hello@brooo.app
+
+## Dearly — voice journal app for Android by BroooApps
+
+Dearly is a voice journal for Android. Tap the ink drop, speak for a minute,
+and Dearly transcribes your words into a clean, serif-set journal page.
+
+Facts:
+- Platform: Android only (as of July 2026)
+- Install: https://play.google.com/store/apps/details?id=com.broooapps.dearly
+- Privacy model: voice recordings never leave the device; only the
+  transcription text travels, over an encrypted connection; biometric lock;
+  full data deletion available
+- Free plan: unlimited recording, 10 transcriptions per day, full journal,
+  biometric lock
+- Dearly Pro: $24.99/year (~$2.08/month) or $2.99/month, 7-day free trial —
+  AI insights (mood horizon, your cast, patterns, reflections) plus export
+
+Pages:
+- About: https://brooo.app/dearly/
+- FAQ: https://brooo.app/dearly/faq/
+- Privacy policy: https://brooo.app/dearly/privacy/
+- Account deletion: https://brooo.app/dearly/delete-account/
+- Guides index: https://brooo.app/dearly/guides/
+- Guide: https://brooo.app/dearly/guides/voice-journaling-guide/
+- Guide: https://brooo.app/dearly/guides/journal-when-you-hate-writing/
+- Guide: https://brooo.app/dearly/guides/private-voice-journal/
+- Guide: https://brooo.app/dearly/guides/best-voice-journaling-apps-android/
+
+## Other apps
+
+- Sutts — AI smoking tracker for Android: https://brooo.app/sutts/
+  (https://play.google.com/store/apps/details?id=com.broooapps.cigarettetracker)
+- Randomizer — spinners, dice, and pickers for Android:
+  https://play.google.com/store/apps/details?id=com.broooapps.randomizer
