@@ -11,8 +11,8 @@ import Reviews from '../../components/Reviews.astro';
 import AppFooter from '../../components/AppFooter.astro';
 import { getApp } from '../../data/apps';
 
-const app = getApp('sutts');
-if (!app) throw new Error('sutts app missing from apps.ts');
+const app = getApp('ember');
+if (!app) throw new Error('ember app missing from apps.ts');
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -24,7 +24,7 @@ const jsonLd = {
   offers: app.pricing?.premium
     ? [
         { '@type': 'Offer', price: '0', priceCurrency: 'INR', name: 'Free' },
-        { '@type': 'Offer', price: '199', priceCurrency: 'INR', name: 'Premium (yearly)' },
+        { '@type': 'Offer', price: '999', priceCurrency: 'INR', name: 'Premium (yearly)' },
       ]
     : [{ '@type': 'Offer', price: '0', priceCurrency: 'INR', name: 'Free' }],
 };
@@ -32,7 +32,7 @@ const jsonLd = {
 <Base
   title={`${app.name} — ${app.tagline} | BroooApps`}
   description={app.hero?.blurb ?? app.oneLiner}
-  ogImage="/og/sutts.png"
+  ogImage="/og/default.png"
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <Nav />

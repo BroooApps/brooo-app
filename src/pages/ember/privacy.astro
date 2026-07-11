@@ -1,0 +1,42 @@
+---
+import PrivacyLayout from '../../layouts/PrivacyLayout.astro';
+---
+<PrivacyLayout appSlug="ember" lastUpdated="2026-07-11">
+
+  <h2>Summary</h2>
+  <p>Ember (formerly Sutts) stores your smoking-log data locally on your device. Premium AI features send anonymised summaries of your patterns to Google's Gemini API through our server. Sign-in is anonymous — no email, no name, no password. The full policy lives at <a href="https://habit-lens.web.app/privacy">habit-lens.web.app/privacy</a>; this page is the short version.</p>
+
+  <h2>What stays on your device</h2>
+  <ul>
+    <li>Cigarettes you log (timestamp, mood, trigger, optional notes), your goals, and app settings.</li>
+    <li>The on-device database is excluded from Google's automatic cloud backup — your logs are never silently uploaded to your Google account.</li>
+  </ul>
+
+  <h2>What leaves your device</h2>
+  <ul>
+    <li><strong>AI Coach (Premium, opt-in):</strong> the prompt you send — which may include a summary of your recent patterns — goes to our server, which forwards it to Google's Gemini API and returns the answer. We don't retain prompts or responses beyond handling the request.</li>
+    <li><strong>Anonymous sign-in:</strong> a random anonymous ID (Firebase Authentication) so the Coach knows requests come from a real installation. No email or social account involved.</li>
+    <li><strong>Crash reports (Firebase Crashlytics):</strong> stack trace, device model, OS version — used to fix bugs.</li>
+    <li><strong>Usage analytics (Firebase Analytics):</strong> aggregated, anonymous events like "onboarding completed". You can turn this off in Settings → Anonymous usage analytics.</li>
+  </ul>
+
+  <h2>What we don't do</h2>
+  <ul>
+    <li>No advertising SDKs, ever.</li>
+    <li>No selling or sharing data with third parties.</li>
+    <li>No collection of your name, email, phone number, or contacts.</li>
+  </ul>
+
+  <h2>Your rights</h2>
+  <p>Delete everything from inside the app (Settings → Delete my data) — this wipes your device data and your anonymous account. Uninstalling removes all local data too. You can export your full log as CSV any time.</p>
+
+  <h2>Children's privacy</h2>
+  <p>Ember is intended for adults who smoke or vape. It is not directed at children under 13 (or under 16 where that threshold applies).</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the updated date above will change. Material changes will be flagged in the app.</p>
+
+  <h2>Contact</h2>
+  <p>Questions, complaints, requests: <a href="mailto:hello@brooo.app">hello@brooo.app</a></p>
+
+</PrivacyLayout>

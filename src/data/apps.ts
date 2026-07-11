@@ -25,7 +25,7 @@ export interface Review {
 export interface AppHero {
   headline: string;     // may contain "\n" for line break
   blurb: string;
-  screenshot: string;   // public-relative path, e.g. "/screenshots/sutts/hero.png"
+  screenshot: string;   // public-relative path, e.g. "/screenshots/ember/hero.png"
 }
 
 export interface App {
@@ -49,9 +49,9 @@ export interface App {
 
 export const apps: App[] = [
   {
-    slug: 'sutts',
-    name: 'Sutts',
-    wordmark: 'SUTTS',
+    slug: 'ember',
+    name: 'Ember',
+    wordmark: 'EMBER',
     tagline: 'AI smoking tracker.',
     oneLiner: 'track, reduce, or quit — meets you where you are. on-device tracking, optional AI coach.',
     status: 'live',
@@ -61,7 +61,7 @@ export const apps: App[] = [
     hero: {
       headline: 'AI smoking\ntracker.',
       blurb: 'track every cigarette in a tap. an AI coach watches your patterns and helps you reduce — or quit — at your own pace. fully on-device unless you opt into AI features.',
-      screenshot: '/screenshots/sutts/hero.png',
+      screenshot: '/screenshots/ember/hero.png',
     },
     whyBuilt: "i smoke. tried six trackers — they all want you to quit on day one. that doesn't work for me. so i built one that just counts honestly, learns my pattern, and nudges gently.",
     features: [
@@ -71,10 +71,10 @@ export const apps: App[] = [
       { headline: 'privacy-first', description: 'all data lives on your device. AI features are opt-in.' },
     ],
     screenshots: [
-      '/screenshots/sutts/01.png',
-      '/screenshots/sutts/02.png',
-      '/screenshots/sutts/03.png',
-      '/screenshots/sutts/04.png',
+      '/screenshots/ember/01.png',
+      '/screenshots/ember/02.png',
+      '/screenshots/ember/03.png',
+      '/screenshots/ember/04.png',
     ],
     pricing: {
       free: {
@@ -84,8 +84,8 @@ export const apps: App[] = [
       },
       premium: {
         label: 'PREMIUM',
-        price: '₹199/yr',
-        subPrice: '~₹17/mo · cancel anytime',
+        price: '₹999/yr',
+        subPrice: 'or ₹149/mo · ₹1,999 lifetime · cancel anytime',
         description: 'everything in free + AI coach. weekly Gemini-powered nudges. craving check-ins.',
       },
     },

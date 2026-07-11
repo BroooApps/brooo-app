@@ -35,7 +35,7 @@ Pages:
 
 ## Other apps
 
-- Sutts — AI smoking tracker for Android: https://brooo.app/sutts/
+- Ember — AI smoking tracker for Android: https://brooo.app/ember/
   (https://play.google.com/store/apps/details?id=com.broooapps.cigarettetracker)
 - Randomizer — spinners, dice, and pickers for Android:
   https://play.google.com/store/apps/details?id=com.broooapps.randomizer
